@@ -13,7 +13,7 @@ public interface OrderService {
 
     Optional<Order> getOrder(String order_id);
 
-    void sendmail(OrderDTO ordercreated) throws MessagingException, IOException;
+    void sendEmail(OrderDTO ordercreated) throws MessagingException, IOException;
 
     OrderDetails saveDetails(OrderDetails orderDetails);
 }

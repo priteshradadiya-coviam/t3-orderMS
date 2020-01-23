@@ -47,9 +47,8 @@ public class OrderServiceImpl implements OrderService {
         return orderRepositery.findById(order_id);
     }
 
-
-
-    public void sendmail(OrderDTO ordercreated) throws AddressException, MessagingException, IOException
+    @Override
+    public void sendEmail(OrderDTO ordercreated) throws AddressException, MessagingException, IOException
     {
 
 
@@ -73,11 +72,10 @@ public class OrderServiceImpl implements OrderService {
         props.put("mail.smtp.port", "587");
         Session session = Session.getInstance(props, new javax.mail.Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication("pritesh.radadiya@coviam.com", "azcxhncltpvwfpoe\n\n");
-            }
-        });
+                return new PasswordAuthentication("book.adda007@gmail.com", "ajgoyicabhtgqdkv\n\n"); }});
+                                                                //pritesh.radadiya@coviam.com//azcxhncltpvwfpoe
         Message msg = new MimeMessage(session);
-        msg.setFrom(new InternetAddress("pritesh.radadiya@coviam.com", false));
+        msg.setFrom(new InternetAddress("book.adda007@gmail.com", false));
         msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(ordercreated.getCustomerEmail()));//"priteshradadiya01@gmail.com"
         msg.setSubject("Your Order is confirmed ...");
         msg.setContent("Order Summary", "text/html");

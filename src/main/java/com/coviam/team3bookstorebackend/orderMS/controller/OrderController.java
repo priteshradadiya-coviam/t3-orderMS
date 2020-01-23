@@ -95,7 +95,7 @@ public class OrderController
        System.out.println("............Email"+orderDTO.getOrderId());
 
 
-         orderService.sendmail(orderDTO);
+         orderService.sendEmail(orderDTO);
 
        System.out.println("............Email");
 
