@@ -1,6 +1,8 @@
 package com.coviam.team3bookstorebackend.orderMS.service;
 
+import com.coviam.team3bookstorebackend.orderMS.dto.OrderDTO;
 import com.coviam.team3bookstorebackend.orderMS.entity.Order;
+import com.coviam.team3bookstorebackend.orderMS.entity.OrderDetails;
 
 import javax.mail.MessagingException;
 import java.io.IOException;
@@ -11,6 +13,7 @@ public interface OrderService {
 
     Optional<Order> getOrder(String order_id);
 
-    void sendmail(String order_id) throws MessagingException, IOException;
+    void sendmail(OrderDTO ordercreated) throws MessagingException, IOException;
 
+    OrderDetails saveDetails(OrderDetails orderDetails);
 }
